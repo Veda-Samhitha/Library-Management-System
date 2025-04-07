@@ -6,7 +6,7 @@ export async function sendVerificationCode(verificationCode, email, res) {
     const message = genereateVerificationOtpEmailTemplate(verificationCode);
     sendEmail({
       email: email,
-      subject: "Verification Code (PK Library Management System)",
+      subject: "Verification Code (Library Management System)",
       message: message,
     });
     res.status(200).json({

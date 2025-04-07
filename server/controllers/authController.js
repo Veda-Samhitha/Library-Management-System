@@ -6,7 +6,10 @@ import crypto from "crypto";
 import { sendVerificationCode } from "../utils/sendVerificationCode.js";
 import { sendToken } from "../utils/sendToken.js";
 import { sendEmail } from "../utils/sendEmail.js";
-import { genereateForgotPasswordEmailTemplate } from "../utils/emailTemplates.js";
+import {
+  genereateAccountVerifiedEmailTemplate,
+  genereateForgotPasswordEmailTemplate,
+} from "../utils/emailTemplates.js";
 
 export const register = catchAsyncErrors(async (req, res, next) => {
   try {
@@ -97,6 +100,14 @@ export const verifyOTP = catchAsyncErrors(async (req, res, next) => {
     user.verificationCodeExpire = null;
     await user.save({ validateModifiedOnly: true });
 
+    const message = genereateAccountVerifiedEmailTemplate(user.name);
+
+    await sendEmail({
+      email: email,
+      subject: "Account Verified (Library Management System)",
+      message,
+    });
+
     sendToken(user, 200, "Account Verified.", res);
   } catch (error) {
     return next(new ErrorHandler("Internal server error.", 500));
@@ -162,7 +173,7 @@ export const forgotPassword = catchAsyncErrors(async (req, res, next) => {
   try {
     await sendEmail({
       email: user.email,
-      subject: "Password Recovery (PK Library Management System)",
+      subject: "Password Recovery (Library Management System)",
       message,
     });
     res.status(200).json({

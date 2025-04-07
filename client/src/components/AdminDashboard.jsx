@@ -58,7 +58,6 @@ const AdminDashboard = () => {
     );
     setTotalBorrowedBooks(numberOfTotalBorrowedBooks.length);
     setTotalReturnedBooks(numberOfTotalReturnedBooks.length);
-    allborrowedBooks.map((book) => console.log(book.book.id.title));
   }, [users, allborrowedBooks]);
 
   const data = {
@@ -77,7 +76,7 @@ const AdminDashboard = () => {
         <Header />
         <div className="flex flex-col-reverse xl:flex-row">
           {/* LEFT SIDE  */}
-          <div className="flex-[2] flex-col gap-7 lg:flow-row flex lg:items-center xl:flex-col justify-between xl:gap-20 py-5">
+          {/* <div className="flex-[2] flex-col gap-7 lg:flow-row flex lg:items-center xl:flex-col justify-between xl:gap-20 py-5">
             <div className="xl:flex-[4] flex items-end w-full content-center">
               <Pie
                 data={data}
@@ -103,7 +102,7 @@ const AdminDashboard = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
           {/* RIGHT SIDE  */}
           <div className="flex flex-[4] flex-col gap-7 lg:gap-7 lg:py-5 justify-between xl:min-h-[85.5vh]">
             <div className="flex flex-col-reverse lg:flex-row gap-7 flex-[4]">
@@ -157,7 +156,7 @@ const AdminDashboard = () => {
                       {user && user.name}
                     </h2>
                     <p className="text-gray-600 text-sm 2xl:text-base text-center">
-                      welcom to your admin dashboard .
+                      welcome to your admin dashboard .
                     </p>
                   </div>
                 </div>

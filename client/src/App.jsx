@@ -6,15 +6,17 @@ import Register from "./pages/Register";
 import ForgotPassword from "./pages/ForgotPassword";
 import OTP from "./pages/OTP";
 import ResetPassword from "./pages/ResetPassword";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
-import { getUser } from "./store/slices/authSlice";
+import { getUser, logout } from "./store/slices/authSlice";
 import { fetchAllUsers } from "./store/slices/userSlice";
 import { fetchAllBooks } from "./store/slices/bookSlice";
 import {
   fetchAllBorrowedBooks,
   fetchUserBorrowedBooks,
 } from "./store/slices/borrowSlice";
+import axios from "axios";
+import { Frontend_URL } from "../config";
 const App = () => {
   const { user, isAuthenticated } = useSelector((state) => state.auth);
   const dispatch = useDispatch();

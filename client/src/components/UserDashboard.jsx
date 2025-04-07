@@ -56,7 +56,7 @@ const UserDashboard = () => {
     datasets: [
       {
         data: [totalBorrowedBooks, totalReturnedBooks],
-        backgroundColor: ["#3D3E3E", "#151619"],
+        backgroundColor: ["#036c5f", "#151619"],
         hoverOffset: 4,
       },
     ],
@@ -91,27 +91,20 @@ const UserDashboard = () => {
                     Your Returned Book List
                   </p>
                 </div>
-              </div>
-              <div className="flex flex-col lg:flex-row gap-7">
-                <div className="flex items-center gap-3 bg-white p-5 max-h-[120px] overflow-hidden rounded-lg transition hover:shadow-inner duration-300">
+                <div className="flex items-center gap-3 bg-white p-5 min-h-[120px] overflow-hidden rounded-lg transition hover:shadow-inner duration-300">
                   <span className="w-[2px] bg-black h-20 lg:h-full"> </span>
                   <span className="bg-gray-300 h-20 lg:h-full min-w-20 flex justify-center items-center rounded-lg">
                     <img src={browseIcon} alt="icon" className="w-8 h-8" />
                   </span>
 
                   <p className="text-lg xl:text-xl font-semibold">
-                    Let's browse books inventory.
+                  Let's browse books inventory.
                   </p>
                 </div>
-                <img
-                  src={logo_with_title}
-                  alt="logo"
-                  className="hidden lg:block w-auto justify-end"
-                />
               </div>
             </div>
             <div>
-              <div className="bg-white p-7 text-lg sm:text-xl xl:text-3xl 2xl:text-4xl min-h-52 font-semibold relative flex-[3] flex justify-center items-center rounded-2xl">
+              <div className="bg-white p-7 text-lg sm:text-xl xl:text-3xl 2xl:text-xl min-h-52 font-semibold relative flex-[3] flex justify-center items-center rounded-2xl">
                 <h4 className="overflow-y-hidden">
                   "Embarking on the journy of reading fosters personal growth,
                   nurturing a path towards excellence and the refinedment of
