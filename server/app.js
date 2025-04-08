@@ -19,7 +19,7 @@ config({ path: "./config/config.env" });
 
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL],
+    origin:"https://library-management-system-plum-delta.vercel.app",
     methods: ["GET", "PUT", "DELETE", "POST"],
     credentials: true,
   })
