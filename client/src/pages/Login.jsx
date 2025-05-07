@@ -114,7 +114,7 @@ const Login = () => {
               />
             </div>
             <p className="text-gray-300 mb-12">
-              New to our plateform? Sign up now.
+              New to our platform? Sign up now.
             </p>
             <Link
               to={"/register"}
