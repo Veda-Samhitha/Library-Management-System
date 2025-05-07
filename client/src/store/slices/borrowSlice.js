@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { Frontend_URL } from "../../../config.js";
+import { API_URL } from "../../../config.js";
 import { toggleRecordBookPopup } from "./popUpSlice.js";
 import { toast } from "react-toastify";
 
@@ -82,7 +82,7 @@ const borrowSlice = createSlice({
 export const fetchUserBorrowedBooks = () => async (dispatch) => {
   dispatch(borrowSlice.actions.fetchUserBorrowedBooksRequest());
   await axios
-    .get(`${Frontend_URL}
+    .get(`${API_URL}
 /borrow/my-borrowed-books`, { withCredentials: true })
     .then((res) => {
       dispatch(
@@ -103,7 +103,7 @@ export const fetchUserBorrowedBooks = () => async (dispatch) => {
 export const fetchAllBorrowedBooks = () => async (dispatch) => {
   dispatch(borrowSlice.actions.fetchAllBorrowedBooksRequest());
   await axios
-    .get(`${Frontend_URL}
+    .get(`${API_URL}
 /borrow/borrowed-books-by-users`, {
       withCredentials: true,
     })
@@ -125,7 +125,7 @@ export const recordBorrowBook = (email, id) => async (dispatch) => {
   dispatch(borrowSlice.actions.recordBookRequest());
   await axios
     .post(
-      `${Frontend_URL}
+      `${API_URL}
 /borrow/record-borrow-book/${id}`,
       { email },
       {
@@ -149,7 +149,7 @@ export const returnBook = (email, id) => async (dispatch) => {
   dispatch(borrowSlice.actions.returnBookRequest());
   await axios
     .put(
-      `${Frontend_URL}
+      `${API_URL}
 /borrow/return-borrowed-book/${id}`,
       { email },
       {

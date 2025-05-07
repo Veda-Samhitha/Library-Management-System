@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { Frontend_URL } from "../../../config.js";
+import { API_URL } from "../../../config.js";
 import { toggleAddNewAdminPopup } from "./popUpSlice.js";
 
 const userSlice = createSlice({
@@ -38,7 +38,7 @@ const userSlice = createSlice({
 export const fetchAllUsers = () => async (dispatch) => {
   dispatch(userSlice.actions.fetchAllUsersRequest());
   await axios
-    .get(`${Frontend_URL}
+    .get(`${API_URL}
 /user/all`, { withCredentials: true })
     .then((res) => {
       dispatch(userSlice.actions.fetchAllUsersSuccess(res.data.users));
@@ -53,7 +53,7 @@ export const fetchAllUsers = () => async (dispatch) => {
 export const addNewAdmin = (data) => async (dispatch) => {
   dispatch(userSlice.actions.addNewAdminRequest());
   await axios
-    .post(`${Frontend_URL}
+    .post(`${API_URL}
 /user/add/new-admin`, data, {
       withCredentials: true,
       headers: {

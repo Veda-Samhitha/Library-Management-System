@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { Frontend_URL } from "../../../config.js";
+import { API_URL } from "../../../config.js";
 import { toast } from "react-toastify";
 
 const authSLice = createSlice({
@@ -158,7 +158,7 @@ export const resetAuthSlice = () => (dispatch) => {
 export const register = (data) => async (dispatch) => {
   dispatch(authSLice.actions.registerRequest());
   await axios
-    .post(`${Frontend_URL}
+    .post(`${API_URL}
 /auth/register`, data, {
       withCredentials: true,
       headers: {
@@ -179,7 +179,7 @@ export const OtpVerification = (email, otp) => async (dispatch) => {
   dispatch(authSLice.actions.OtpVerificationRequest());
   await axios
     .post(
-      `${Frontend_URL}
+      `${API_URL}
 /auth/verify-otp`,
       { email, otp },
       {
@@ -204,7 +204,7 @@ export const OtpVerification = (email, otp) => async (dispatch) => {
 export const login = (data) => async (dispatch) => {
   dispatch(authSLice.actions.loginRequest());
   await axios
-    .post(`${Frontend_URL}
+    .post(`${API_URL}
 /auth/login`, data, {
       withCredentials: true,
       headers: {
@@ -224,7 +224,7 @@ export const login = (data) => async (dispatch) => {
 export const logout = () => async (dispatch) => {
   dispatch(authSLice.actions.logoutRequest());
   await axios
-    .get(`${Frontend_URL}
+    .get(`${API_URL}
 /auth/logout`, {
       withCredentials: true,
     })
@@ -242,7 +242,7 @@ export const logout = () => async (dispatch) => {
 export const getUser = () => async (dispatch) => {
   dispatch(authSLice.actions.getUserRequest());
   await axios
-    .get(`${Frontend_URL}
+    .get(`${API_URL}
 /auth/me`, {
       withCredentials: true,
     })
@@ -260,7 +260,7 @@ export const forgotPassword = (email) => async (dispatch) => {
   dispatch(authSLice.actions.forgotPasswordRequest());
   await axios
     .post(
-      `${Frontend_URL}
+      `${API_URL}
 /auth/password/forgot`,
       { email },
       {
@@ -285,7 +285,7 @@ export const forgotPassword = (email) => async (dispatch) => {
 export const resetPassword = (data, token) => async (dispatch) => {
   dispatch(authSLice.actions.resetPasswordRequest());
   await axios
-    .put(`${Frontend_URL}
+    .put(`${API_URL}
 /auth/password/reset/${token}`, data, {
       withCredentials: true,
       headers: {
@@ -307,7 +307,7 @@ export const resetPassword = (data, token) => async (dispatch) => {
 export const updatePassword = (data) => async (dispatch) => {
   dispatch(authSLice.actions.updatePasswordRequest());
   await axios
-    .put(`${Frontend_URL}
+    .put(`${API_URL}
 /auth/password/update`, data, {
       withCredentials: true,
       headers: {
