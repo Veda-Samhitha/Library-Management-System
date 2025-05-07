@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { Frontend_URL } from "./../../../config.js";
+import { API_URL } from "../../../config.js";
 import { toast } from "react-toastify";
 
 const authSLice = createSlice({

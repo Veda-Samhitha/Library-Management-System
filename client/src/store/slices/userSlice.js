@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { Frontend_URL } from "./../../../config.js";
+import { API_URL } from "../../../config.js";
 import { toggleAddNewAdminPopup } from "./popUpSlice.js";
 
 const userSlice = createSlice({
