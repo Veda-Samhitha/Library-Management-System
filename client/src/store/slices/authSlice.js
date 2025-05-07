@@ -158,7 +158,8 @@ export const resetAuthSlice = () => (dispatch) => {
 export const register = (data) => async (dispatch) => {
   dispatch(authSLice.actions.registerRequest());
   await axios
-    .post(`${Frontend_URL}/auth/register`, data, {
+    .post(`${API_URL}
+/auth/register`, data, {
       withCredentials: true,
       headers: {
         "Content-Type": "application/json",
@@ -178,7 +179,8 @@ export const OtpVerification = (email, otp) => async (dispatch) => {
   dispatch(authSLice.actions.OtpVerificationRequest());
   await axios
     .post(
-      `${Frontend_URL}/auth/verify-otp`,
+      `${API_URL}
+/auth/verify-otp`,
       { email, otp },
       {
         withCredentials: true,
@@ -202,7 +204,8 @@ export const OtpVerification = (email, otp) => async (dispatch) => {
 export const login = (data) => async (dispatch) => {
   dispatch(authSLice.actions.loginRequest());
   await axios
-    .post(`${Frontend_URL}/auth/login`, data, {
+    .post(`${API_URL}
+/auth/login`, data, {
       withCredentials: true,
       headers: {
         "Content-Type": "application/json",
@@ -221,7 +224,8 @@ export const login = (data) => async (dispatch) => {
 export const logout = () => async (dispatch) => {
   dispatch(authSLice.actions.logoutRequest());
   await axios
-    .get(`${Frontend_URL}/auth/logout`, {
+    .get(`${API_URL}
+/auth/logout`, {
       withCredentials: true,
     })
     .then((res) => {
@@ -238,7 +242,8 @@ export const logout = () => async (dispatch) => {
 export const getUser = () => async (dispatch) => {
   dispatch(authSLice.actions.getUserRequest());
   await axios
-    .get(`${Frontend_URL}/auth/me`, {
+    .get(`${API_URL}
+/auth/me`, {
       withCredentials: true,
     })
     .then((res) => {
@@ -255,7 +260,8 @@ export const forgotPassword = (email) => async (dispatch) => {
   dispatch(authSLice.actions.forgotPasswordRequest());
   await axios
     .post(
-      `${Frontend_URL}/auth/password/forgot`,
+      `${API_URL}
+/auth/password/forgot`,
       { email },
       {
         withCredentials: true,
@@ -279,7 +285,8 @@ export const forgotPassword = (email) => async (dispatch) => {
 export const resetPassword = (data, token) => async (dispatch) => {
   dispatch(authSLice.actions.resetPasswordRequest());
   await axios
-    .put(`${Frontend_URL}/auth/password/reset/${token}`, data, {
+    .put(`${API_URL}
+/auth/password/reset/${token}`, data, {
       withCredentials: true,
       headers: {
         "Content-Type": "application/json",
@@ -300,7 +307,8 @@ export const resetPassword = (data, token) => async (dispatch) => {
 export const updatePassword = (data) => async (dispatch) => {
   dispatch(authSLice.actions.updatePasswordRequest());
   await axios
-    .put(`${Frontend_URL}/auth/password/update`, data, {
+    .put(`${API_URL}
+/auth/password/update`, data, {
       withCredentials: true,
       headers: {
         "Content-Type": "application/json",

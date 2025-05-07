@@ -4,7 +4,7 @@ import Header from "../layout/Header";
 import { Trash2 } from "lucide-react";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { Frontend_URL } from "../../config";
+import { API_URL }from "../../config";
 import { fetchAllUsers } from "../store/slices/userSlice";
 
 const Users = () => {
@@ -34,7 +34,8 @@ const Users = () => {
 
   const deleteUser = async () => {
     try {
-      const res = await axios.delete(`${Frontend_URL}/user/delete/${userID}`, {
+      const res = await axios.delete(`${API_URL}
+/user/delete/${userID}`, {
         withCredentials: true,
       });
       dispatch(fetchAllUsers());

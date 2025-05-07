@@ -82,7 +82,8 @@ const borrowSlice = createSlice({
 export const fetchUserBorrowedBooks = () => async (dispatch) => {
   dispatch(borrowSlice.actions.fetchUserBorrowedBooksRequest());
   await axios
-    .get(`${Frontend_URL}/borrow/my-borrowed-books`, { withCredentials: true })
+    .get(`${API_URL}
+/borrow/my-borrowed-books`, { withCredentials: true })
     .then((res) => {
       dispatch(
         borrowSlice.actions.fetchUserBorrowedBooksSuccess(
@@ -102,7 +103,8 @@ export const fetchUserBorrowedBooks = () => async (dispatch) => {
 export const fetchAllBorrowedBooks = () => async (dispatch) => {
   dispatch(borrowSlice.actions.fetchAllBorrowedBooksRequest());
   await axios
-    .get(`${Frontend_URL}/borrow/borrowed-books-by-users`, {
+    .get(`${API_URL}
+/borrow/borrowed-books-by-users`, {
       withCredentials: true,
     })
     .then((res) => {
@@ -123,7 +125,8 @@ export const recordBorrowBook = (email, id) => async (dispatch) => {
   dispatch(borrowSlice.actions.recordBookRequest());
   await axios
     .post(
-      `${Frontend_URL}/borrow/record-borrow-book/${id}`,
+      `${API_URL}
+/borrow/record-borrow-book/${id}`,
       { email },
       {
         withCredentials: true,
@@ -146,7 +149,8 @@ export const returnBook = (email, id) => async (dispatch) => {
   dispatch(borrowSlice.actions.returnBookRequest());
   await axios
     .put(
-      `${Frontend_URL}/borrow/return-borrowed-book/${id}`,
+      `${API_URL}
+/borrow/return-borrowed-book/${id}`,
       { email },
       {
         withCredentials: true,

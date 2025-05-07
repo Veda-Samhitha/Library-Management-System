@@ -17,7 +17,7 @@ import AddBookPopup from "../popups/AddBookPopup";
 import ReadBookPopup from "../popups/ReadBookPopup";
 import RecordBookPopup from "../popups/RecordBookPopup";
 import axios from "axios";
-import { Frontend_URL } from "../../config";
+import { API_URL }from "../../config";
 
 const BookManagement = () => {
   const dispatch = useDispatch();
@@ -88,7 +88,8 @@ const BookManagement = () => {
 
   const deleteBook = async () => {
     try {
-      const res = await axios.delete(`${Frontend_URL}/book/delete/${bookID}`, {
+      const res = await axios.delete(`${API_URL}
+/book/delete/${bookID}`, {
         withCredentials: true,
       });
       dispatch(fetchAllBooks());

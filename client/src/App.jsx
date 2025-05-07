@@ -16,7 +16,7 @@ import {
   fetchUserBorrowedBooks,
 } from "./store/slices/borrowSlice";
 import axios from "axios";
-import { Frontend_URL } from "../config";
+import { API_URL }from "../config";
 const App = () => {
   const { user, isAuthenticated } = useSelector((state) => state.auth);
   const dispatch = useDispatch();

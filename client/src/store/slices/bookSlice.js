@@ -52,7 +52,8 @@ const bookSlice = createSlice({
 export const fetchAllBooks = () => async (dispatch) => {
   dispatch(bookSlice.actions.fetchBookRequest());
   await axios
-    .get(`${Frontend_URL}/book/all`, { withCredentials: true })
+    .get(`${API_URL}
+/book/all`, { withCredentials: true })
     .then((res) => {
       dispatch(bookSlice.actions.fetchBookSuccess(res.data.books));
     })
@@ -64,7 +65,8 @@ export const fetchAllBooks = () => async (dispatch) => {
 export const addBook = (data) => async (dispatch) => {
   dispatch(bookSlice.actions.addBookRequest());
   await axios
-    .post(`${Frontend_URL}/book/admin/add`, data, {
+    .post(`${API_URL}
+/book/admin/add`, data, {
       withCredentials: true,
       headers: {
         "Content-Type": "application/json",
