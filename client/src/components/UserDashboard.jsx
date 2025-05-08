@@ -106,9 +106,7 @@ const UserDashboard = () => {
             <div>
               <div className="bg-white p-7 text-lg sm:text-xl xl:text-3xl 2xl:text-xl min-h-52 font-semibold relative flex-[3] flex justify-center items-center rounded-2xl">
                 <h4 className="overflow-y-hidden">
-                  "Embarking on the journy of reading fosters personal growth,
-                  nurturing a path towards excellence and the refinedment of
-                  character."
+                  "Reading is just brain gym—without the sweating, but with more snacks and imagination!
                 </h4>
                 <p className="text-gray-700 text-sm sm:text-lg absolute right-[35px] sm:right-[78px] bottom-[10px]">
                   ~BookWorm Team
